@@ -23,5 +23,6 @@
 	<modules>
 		<module>the-allen-ai-science-challenge</module>
 		<module>project-utils</module>
+		<module>hadoop</module>
 	</modules>
 </project>
