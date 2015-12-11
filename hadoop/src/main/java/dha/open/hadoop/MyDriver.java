@@ -8,6 +8,7 @@ import org.apache.hadoop.mapred.FileOutputFormat;
 import org.apache.hadoop.mapred.JobClient;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
 
 import com.sun.jersey.core.impl.provider.entity.XMLJAXBElementProvider.Text;
 
@@ -35,6 +36,11 @@ public class MyDriver extends Configured implements Tool {
 
 		JobClient.runJob(conf);
 		return 0;
+	}
+
+	public static void main(String[] args) throws Exception {
+		int exit = ToolRunner.run(new MyDriver(), args);
+		System.exit(exit);
 	}
 
 }
