@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -58,7 +59,10 @@ public class WordCount {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 		FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-		FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+//		FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+		FileSystem fs = FileSystem.get(new Configuration());
+		fs.delete(new Path(otherArgs[1]), true);
+		
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 	}
 }
