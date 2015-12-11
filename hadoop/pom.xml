@@ -29,7 +29,7 @@
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
 					<filename>first-runnable.jar</filename>
-					<outputDirectory>/opt/hadoop/artifacts</outputDirectory>
+					<outputDirectory>/opt/test</outputDirectory>
 				</configuration>
 				<executions>
 					<execution>

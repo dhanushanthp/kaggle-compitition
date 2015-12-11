@@ -22,7 +22,7 @@ public class MyDriver extends Configured implements Tool {
 		JobConf conf = new JobConf(MyDriver.class);
 
 		conf.setJobName("Count Names");
-		FileInputFormat.setInputPaths(conf, new Path(arg0[0]));
+		FileInputFormat.addInputPath(conf, new Path(arg0[0]));
 		FileOutputFormat.setOutputPath(conf, new Path(arg0[1]));
 
 		conf.setMapperClass(MyMapper.class);
