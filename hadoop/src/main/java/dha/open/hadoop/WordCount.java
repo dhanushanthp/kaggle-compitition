@@ -60,7 +60,7 @@ public class WordCount {
 		job.setOutputValueClass(IntWritable.class);
 		FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
 //		FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-		FileSystem fs = FileSystem.get(new Configuration());
+		FileSystem fs = FileSystem.get(conf);
 		fs.delete(new Path(otherArgs[1]), true);
 		
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
