@@ -22,7 +22,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>dha.open.hadoop.MyDriver</mainClass>
+							<mainClass>dha.open.hadoop.WordCount</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
