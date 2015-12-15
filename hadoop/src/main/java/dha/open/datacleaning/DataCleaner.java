@@ -3,14 +3,13 @@ package dha.open.datacleaning;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.FileInputFormat;
 import org.apache.hadoop.mapred.FileOutputFormat;
 import org.apache.hadoop.mapred.JobClient;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-
-import com.sun.jersey.core.impl.provider.entity.XMLJAXBElementProvider.Text;
 
 public class DataCleaner extends Configured implements Tool {
 
@@ -28,8 +27,8 @@ public class DataCleaner extends Configured implements Tool {
 		conf.setMapperClass(MyMapper.class);
 		conf.setReducerClass(MyReducer.class);
 
-		conf.setMapOutputKeyClass(Text.class);
-		conf.setMapOutputValueClass(IntWritable.class);
+//		conf.setMapOutputKeyClass(Text.class);
+//		conf.setMapOutputValueClass(IntWritable.class);
 
 		conf.setOutputKeyClass(Text.class);
 		conf.setOutputValueClass(IntWritable.class);
