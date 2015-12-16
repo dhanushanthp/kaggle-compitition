@@ -1,4 +1,4 @@
-package dha.open.hadoop;
+package dha.open.hadoop.wordcount;
 
 import java.io.IOException;
 import java.util.StringTokenizer;
@@ -14,7 +14,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-public class WordCount {
+public class WordCountTemplete {
 
 	public static class TokenizerMapper extends Mapper<Object, Text, Text, IntWritable> {
 
@@ -51,7 +51,7 @@ public class WordCount {
 			System.exit(2);
 		}
 		Job job = new Job(conf, "word count");
-		job.setJarByClass(WordCount.class);
+		job.setJarByClass(WordCountTemplete.class);
 		job.setMapperClass(TokenizerMapper.class);
 		job.setCombinerClass(IntSumReducer.class);
 		job.setReducerClass(IntSumReducer.class);

@@ -38,7 +38,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>dha.open.datacleaning.DataCleaner</mainClass>
+							<mainClass>dha.open.hadoop.wordcount.WordCount</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

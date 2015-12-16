@@ -1,4 +1,4 @@
-package dha.open.hadoop;
+package dha.open.hadoop.wordcount;
 
 import java.io.IOException;
 
@@ -10,14 +10,17 @@ import org.apache.hadoop.mapred.Mapper;
 import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reporter;
 
-public class MyMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, IntWritable> {
+public class WordCountMapper extends MapReduceBase implements
+		Mapper<LongWritable, Text, Text, IntWritable> {
 
 	@Override
-	public void map(LongWritable arg0, Text arg1, OutputCollector<Text, IntWritable> arg2, Reporter arg3) throws IOException {
-		String input = arg0.toString();
+	public void map(LongWritable key, Text value,
+			OutputCollector<Text, IntWritable> output, Reporter reporter)
+			throws IOException {
+		String input = value.toString();
 		for (String word : input.split(" ")) {
 			if (word.length() > 0) {
-				arg2.collect(new Text(word), new IntWritable(1));
+				output.collect(new Text(word), new IntWritable(1));
 			}
 		}
 	}
